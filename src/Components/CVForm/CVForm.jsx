@@ -4,12 +4,15 @@ import PersonalInfo from "./PersonalInfo";
 import EducationalInfo from "./EducationalInfo";
 import ExperienceInfo from "./ExperienceInfo";
 
-const CVForm = () => {
+const CVForm = ({ cv }) => {
   return (
     <CVFormWrapper>
-      <PersonalInfo />
-      <EducationalInfo />
+      <PersonalInfo
+        persoanalInfo={cv.personalInfo}
+        onChange={onChangePersonal}
+      />
       <ExperienceInfo />
+      <EducationalInfo />
     </CVFormWrapper>
   );
 };
