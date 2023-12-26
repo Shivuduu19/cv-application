@@ -1,28 +1,35 @@
 import React from "react";
 import styled from "styled-components";
-import PersonalInfo from "./PersonalInfo";
-import EducationalInfo from "./EducationalInfo";
-import ExperienceInfo from "./ExperienceInfo";
+import Personal from "./Personal";
+import Education from "./Education";
+import Experience from "./Experience";
+import Button from "../Utils/Button";
 
 const CVForm = ({ cv }) => {
   return (
     <CVFormWrapper>
-      <PersonalInfo
-        persoanalInfo={cv.personalInfo}
-        onChange={onChangePersonal}
-      />
-      <ExperienceInfo />
-      <EducationalInfo />
+      <Personal personalInfo={cv.personalInfo} />
+      <Experience experience={cv.experienceInfo} />
+      <Education education={cv.educationInfo} />
+      <>
+        <Button text="Generate PDF" primary></Button>
+        <Button text="Load Example" secondary></Button>
+        <Button text="Reset" red></Button>
+      </>
     </CVFormWrapper>
   );
 };
+
 const CVFormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: 700px;
+  /* color: #ee1d19; */
+  width: 210mm;
   padding: 2rem;
-  border: 8px;
-  background-color: #f1f4f6;
+  border-radius: 5px;
+  background-color: ${({ theme }) => theme.colors.light};
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `;
+
 export default CVForm;
