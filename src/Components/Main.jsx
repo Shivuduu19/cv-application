@@ -1,35 +1,153 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
-// import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from "uuid";
 import CVForm from "./CVForm/CVForm";
-// import CVPreview from "./CVPreview/CVPreview";
-// import exampleCV from "./Utils/exampleCV";
+import CVPreview from "./CVPreview/CVPreview";
+import exampleCV from "./Utils/exampleCV";
 import emptyCV from "./Utils/emptyCV";
-//
+
 const Main = () => {
-  const cv = emptyCV;
-  // const [cv, setCv] = useState(emptyCV);
-  // const handleChangePersonal = () => {};
-  // // const handleChangeFile=()=>{}
-  // const handleChangeExperience = () => {};
+  const [cv, setCv] = useState(emptyCV);
 
-  // const handleAddExperience = () => {};
+  const handleChangePersonal = (e) => {
+    const { name, value, type } = e.target;
 
-  // const handleDeleteExperience = () => {};
+    if (type === "file") {
+      handleChangeFile(e);
+      return;
+    }
 
-  // const handleChangeEducation = () => {};
+    setCv((prevState) => ({
+      ...prevState,
+      personalInfo: {
+        ...prevState.personalInfo,
+        [name]: value,
+      },
+    }));
+  };
 
-  // const handleAddEducation = () => {};
+  const handleChangeFile = (e) => {
+    const { name } = e.target;
+    const file = e.target.files[0];
+    if (!file) return;
 
-  // const handleDeleteEducation = () => {};
+    const reader = new FileReader();
+    reader.onload = () => {
+      setCv((prevState) => ({
+        ...prevState,
+        personalInfo: {
+          ...prevState.personalInfo,
+          [name]: reader.result,
+        },
+      }));
+    };
+    reader.readAsDataURL(file);
+  };
 
-  // const handleLoadExample = () => {};
+  const handleChangeExperience = (e, id) => {
+    const { name, value } = e.target;
 
-  // const handleReset = () => {};
+    setCv((prevState) => {
+      const newExperience = prevState.experienceInfo.map((experienceItem) => {
+        if (experienceItem.id === id) {
+          return { ...experienceItem, [name]: value };
+        }
+        return experienceItem;
+      });
+      return { ...prevState, experienceInfo: [...newExperience] };
+    });
+  };
+
+  const handleAddExperience = () => {
+    setCv((prevState) => ({
+      ...prevState,
+      experienceInfo: [
+        ...prevState.experienceInfo,
+        {
+          id: uuidv4(),
+          position: "",
+          company: "",
+          city: "",
+          from: "",
+          to: "",
+        },
+      ],
+    }));
+  };
+
+  const handleDeleteExperience = (id) => {
+    setCv((prevState) => {
+      const newExperience = prevState.experienceInfo.filter(
+        (experienceItem) => experienceItem.id !== id
+      );
+      return { ...prevState, experienceInfo: [...newExperience] };
+    });
+  };
+
+  const handleChangeEducation = (e, id) => {
+    const { name, value } = e.target;
+
+    setCv((prevState) => {
+      const newEducation = prevState.educationInfo.map((educationItem) => {
+        if (educationItem.id === id) {
+          return { ...educationItem, [name]: value };
+        }
+        return educationItem;
+      });
+      return { ...prevState, educationInfo: [...newEducation] };
+    });
+  };
+
+  const handleAddEducation = () => {
+    setCv((prevState) => ({
+      ...prevState,
+      educationInfo: [
+        ...prevState.educationInfo,
+        {
+          id: uuidv4(),
+          universityName: "",
+          city: "",
+          degree: "",
+          subject: "",
+          from: "",
+          to: "",
+        },
+      ],
+    }));
+  };
+
+  const handleDeleteEducation = (id) => {
+    setCv((prevState) => {
+      const newEducation = prevState.educationInfo.filter(
+        (educationItem) => educationItem.id !== id
+      );
+      return { ...prevState, educationInfo: [...newEducation] };
+    });
+  };
+
+  const handleLoadExample = () => {
+    setCv(exampleCV);
+  };
+
+  const handleReset = () => {
+    setCv(emptyCV);
+  };
 
   return (
     <MainWrapper>
-      <CVForm cv={cv} />
+      <CVForm
+        cv={cv}
+        onChangePersonal={handleChangePersonal}
+        onChangeExperience={handleChangeExperience}
+        onAddExperience={handleAddExperience}
+        onDeleteExperience={handleDeleteExperience}
+        onChangeEducation={handleChangeEducation}
+        onAddEducation={handleAddEducation}
+        onDeleteEducation={handleDeleteEducation}
+        onLoadExample={handleLoadExample}
+        onReset={handleReset}
+      />
+      <CVPreview cv={cv} />
     </MainWrapper>
   );
 };
@@ -46,7 +164,7 @@ const MainWrapper = styled.main`
   margin: 0 auto;
   margin-bottom: 4rem;
 
-  @media (max-width: 1600px) {
+  @media (max-width: 1000px) {
     flex-direction: column;
     align-items: center;
   }

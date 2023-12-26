@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-const Input = ({ type, name, value, placeholder }) => {
+const Input = ({ type, name, value, placeholder, onChange }) => {
   return (
     <InputWrapper
+      onChange={onChange}
       type={type}
       value={value}
       placeholder={placeholder}

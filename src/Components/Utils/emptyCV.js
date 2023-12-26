@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
-const emptyCv = {
+
+const exampleCV = {
   personalInfo: {
     firstName: "",
     lastName: "",
@@ -10,6 +11,16 @@ const emptyCv = {
     email: "",
     description: "",
   },
+  experienceInfo: [
+    {
+      id: uuidv4(),
+      position: "",
+      company: "",
+      city: "",
+      from: "",
+      to: "",
+    },
+  ],
   educationInfo: [
     {
       id: uuidv4(),
@@ -21,15 +32,6 @@ const emptyCv = {
       to: "",
     },
   ],
-  experienceInfo: [
-    {
-      id: uuidv4(),
-      position: "",
-      company: "",
-      city: "",
-      from: "",
-      to: "",
-    },
-  ],
 };
-export default emptyCv;
+
+export default exampleCV;
