@@ -16,7 +16,6 @@ const HeaderContainer = styled.div`
 `;
 
 const HeaderWrapper = styled.div`
-  /* font-family: "Zen Tokyo Zoo", cursive; */
   display: flex;
   align-items: center;
   max-width: 1800px;
