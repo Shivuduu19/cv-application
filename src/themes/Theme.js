@@ -16,5 +16,6 @@ export const Theme = {
     red: "#ee1d19",
     redHover: "#a2100d",
     redActive: "#91000c",
+    blue: "#378db0",
   },
 };

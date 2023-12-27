@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-// import examplePhoto from "../../assets/example_photo.jpg";
+// import examplePhoto from "../../assets/examplePhoto";
 
 const exampleCV = {
   personalInfo: {
@@ -13,7 +13,7 @@ const exampleCV = {
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tempus imperdiet nisl sed vestibulum. Donec gravida, nulla eget blandit fermentum, mauris nisi rutrum libero, ac pharetra erat est sit amet tellus. Quisque fermentum dolor a interdum fermentum. Maecenas vehicula ac ipsum nec gravida. Integer quis porta turpis. Aenean et metus.",
   },
-  experience: [
+  experienceInfo: [
     {
       id: uuidv4(),
       position: "Senior Web Developer",
@@ -47,7 +47,7 @@ const exampleCV = {
       to: "To",
     },
   ],
-  education: [
+  educationInfo: [
     {
       id: uuidv4(),
       universityName: "University of Technology",

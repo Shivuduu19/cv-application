@@ -20,10 +20,10 @@ const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   max-width: 1800px;
-  padding: 3rem 8rem;
+  padding: 2rem 6rem;
   margin: 0 auto;
   color: #653423;
-  font-size: 2.2rem;
+  font-size: 1rem;
 
   @media (max-width: 1600px) {
     justify-content: center;

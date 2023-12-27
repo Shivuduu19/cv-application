@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
 }
 html{
-    font-size: 65%;
+    font-size: 80%;
     /* Footer support */
     position: relative;
 

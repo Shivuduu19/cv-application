@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-const Subsection = ({ title, children, titlePadding }) => {
+const Subsection = ({ title, children }) => {
   return (
-    <SubsectionWrapper padding={titlePadding}>
+    <SubsectionWrapper>
       <Title>{title}</Title>
       {children}
     </SubsectionWrapper>
@@ -13,6 +13,7 @@ const Subsection = ({ title, children, titlePadding }) => {
 const SubsectionWrapper = styled.section`
   display: flex;
   flex-direction: column;
+  gap: 5px;
   padding: ${(props) => props.padding};
 `;
 
