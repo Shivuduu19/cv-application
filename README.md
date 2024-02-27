@@ -8,6 +8,7 @@ Made this using:
 - styled-components for styling
 - uuid package for unique keys
 - react-icons for icons
+- vite
 
 ## 📚 What I learnt:
 
