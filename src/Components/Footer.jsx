@@ -5,7 +5,7 @@ import { FaGithub } from "react-icons/fa";
 export const Footer = () => {
   return (
     <FooterWrapper>
-      Copyright © 2023 shiva kumar
+      Copyright © 2024 shiva kumar
       <Link href="https://github.com/Shivuduu19/">
         <FaGithub />
       </Link>
