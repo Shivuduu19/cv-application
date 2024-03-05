@@ -50,6 +50,7 @@ const ButtonWrapper = styled.button`
     css`
       background-color: ${({ theme }) => theme.colors.secondary};
       color: ${({ theme }) => theme.colors.light};
+      color: ;
 
       &:hover {
         background-color: ${({ theme }) => theme.colors.secondaryHover};
