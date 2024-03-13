@@ -24,8 +24,9 @@ const HeaderWrapper = styled.div`
   color: #653423;
   font-size: 1rem;
 
-  @media (max-width: 1600px) {
+  @media (max-width: 460px) {
     justify-content: center;
+    text-align: center;
   }
 `;
 export default Header;
