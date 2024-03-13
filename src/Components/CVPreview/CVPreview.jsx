@@ -36,4 +36,10 @@ const CVPreviewWrapper = styled.div`
   grid-template-rows: 35mm 262mm;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: #465653;
+  @media (max-width: 460px) {
+    width: 100%;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+  }
 `;

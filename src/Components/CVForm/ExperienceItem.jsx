@@ -40,7 +40,7 @@ const ExperienceItem = ({ id, experienceItem, onChange, onDelete }) => {
         placeholder="To"
         value={experienceItem.to}
       />
-      <Button text="Delete" onClick={() => onDelete(id)}></Button>
+      <Button text="Delete" onClick={() => onDelete(id)} primary=""></Button>
     </>
   );
 };

@@ -164,8 +164,9 @@ const MainWrapper = styled.main`
   margin: 0 auto;
   margin-bottom: 4rem;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 460px) {
     flex-direction: column;
     align-items: center;
+    padding: 1rem 2rem;
   }
 `;

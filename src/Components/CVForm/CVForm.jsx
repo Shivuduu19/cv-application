@@ -33,9 +33,13 @@ const CVForm = ({
         onDelete={onDeleteEducation}
       />
       <>
-        <Button text="Generate PDF" primary></Button>
-        <Button text="Load Example" onClick={onLoadExample} secondary></Button>
-        <Button text="Reset" onClick={onReset} red></Button>
+        <Button text="Generate PDF" primary="true"></Button>
+        <Button
+          text="Load Example"
+          onClick={onLoadExample}
+          secondary="true"
+        ></Button>
+        <Button text="Reset" onClick={onReset} red="true"></Button>
       </>
     </CVFormWrapper>
   );
@@ -50,6 +54,11 @@ const CVFormWrapper = styled.div`
   border-radius: 5px;
   background-color: ${({ theme }) => theme.colors.light};
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  @media (max-width: 460px) {
+    width: 100%;
+    padding: 10px;
+    margin: 0 auto;
+  }
 `;
 
 export default CVForm;

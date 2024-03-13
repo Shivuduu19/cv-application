@@ -11,7 +11,7 @@ const Section = ({
 }) => {
   return (
     <SectionWrapper padding={padding}>
-      <Title padding={titlePadding} contrast={contrastTitle}>
+      <Title padding={titlePadding} contrast="true">
         {title}
       </Title>
       <Children direction={direction}>{children}</Children>
